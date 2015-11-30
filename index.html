@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="jquery-1.9.1.min.js"></script>
+		<link href="bootstrap.min.css" rel="stylesheet">
+		<script src="bootstrap.min.js"></script>
+		
+		<script>
+			var happyImages = ["01.jpg", "02.jpg", "03.jpg"];
+			var sadImages = ["01.jpg", "02.jpg", "03.jpg"];
+			
+			$( function() {
+				$("#noButton").on('click', function() {
+					var imageName = "happy/" + happyImages[ parseInt( Math.random() * happyImages.length ) ];
+					displayImage( imageName );
+				});
+
+				$("#yesButton").on('click', function() {
+					var imageName = "sad/" + sadImages[ parseInt( Math.random() * sadImages.length ) ];
+					displayImage( imageName );
+				});
+			});
+			
+			function displayImage( imageFilename ) {
+				$("#imageDiv").html('<img src="' + imageFilename + '" height="300">');
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h1>Did you smoke today or do you plan to smoke today?</h1>
+				</div>
+				
+				<div class="col-xs-12" >
+					<button id="noButton" type="button" class="btn btn-success">No!</button>
+					<button id="yesButton" type="button" class="btn btn-danger">Yes</button>
+				</div>
+
+				<div id="imageDiv" class="col-xs-12" style="margin-top: 10px;">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
